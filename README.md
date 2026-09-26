@@ -14,6 +14,12 @@ A multi-protocol yield aggregator and vault manager on BNB Smart Chain, designed
 **Main Platform:** [https://arbitrage-inc.exchange](https://arbitrage-inc.exchange)  
 **License:** [MIT](./LICENSE)
 
+### Live UI Preview
+
+![Arbitrage Inc Earn live vault explorer](./docs/live-vaults.png)
+
+This capture shows the public vault explorer and live strategy cards before wallet connection. Rates, positions and availability can change with the underlying protocols.
+
 ## Demo & Concrete Example
 
 Try the [live Earn application](https://arbitrage-inc-earn.vercel.app) to inspect the vault interface on BNB Smart Chain. The application is read-only until a user connects a wallet and explicitly signs a transaction.
