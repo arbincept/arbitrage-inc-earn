@@ -14,6 +14,18 @@ A multi-protocol yield aggregator and vault manager on BNB Smart Chain, designed
 **Main Platform:** [https://arbitrage-inc.exchange](https://arbitrage-inc.exchange)  
 **License:** [MIT](./LICENSE)
 
+## Demo & Concrete Example
+
+Try the [live Earn application](https://arbitrage-inc-earn.vercel.app) to inspect the vault interface on BNB Smart Chain. The application is read-only until a user connects a wallet and explicitly signs a transaction.
+
+Example workflow:
+
+1. Select a supported liquid-staking or lending destination.
+2. Review the required asset, route, estimated output and displayed protocol data.
+3. Connect a wallet and sign only after checking the target protocol and transaction details.
+
+Supported integrations and displayed yield data can change; this repository does not guarantee returns.
+
 ---
 
 ## Architecture & Yield Topology
