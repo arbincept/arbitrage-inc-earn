@@ -1,135 +1,90 @@
-# Arbitrage Inception — Earn & Vaults
+<div align="center">
 
-[![CI](https://github.com/arbincept/arbitrage-inc-earn/actions/workflows/ci.yml/badge.svg)](https://github.com/arbincept/arbitrage-inc-earn/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Network: BSC](https://img.shields.io/badge/Network-BNB_Smart_Chain-F0B90B?logo=binance&logoColor=white)](https://bscscan.com)
-[![Next.js](https://img.shields.io/badge/Next.js-15_App_Router-black?logo=next.js&logoColor=white)](https://nextjs.org)
-[![KyberSwap](https://img.shields.io/badge/Router-KyberSwap_ZaaS-2CB680)](https://kyberswap.com)
-[![DeFi: Vaults](https://img.shields.io/badge/DeFi-Yield_Vaults-F3BA2F)](#)
-[![GitHub stars](https://img.shields.io/github/stars/arbincept/arbitrage-inc-earn?style=social)](https://github.com/arbincept/arbitrage-inc-earn)
+# Arbitrage Inc Earn
 
-A multi-protocol yield aggregator and vault manager on BNB Smart Chain, designed to streamline entry into top DeFi yield strategies.
+**Explore BNB Chain lending and liquid staking in one interface.**
 
-**Live Application:** [https://arbitrage-inc-earn.vercel.app](https://arbitrage-inc-earn.vercel.app)  
-**Main Platform:** [https://arbitrage-inc.exchange](https://arbitrage-inc.exchange)  
-**License:** [MIT](./LICENSE)
+Built and maintained by **[Luca Celebrano · @Lukecele](https://github.com/Lukecele)**, founder of [Arbitrage Inception](https://github.com/arbincept).
 
-### Live UI Preview
+**[Open app](https://arbitrage-inc-earn.vercel.app)** · **[Star this repository](https://github.com/arbincept/arbitrage-inc-earn)** · **[Follow Lukecele](https://github.com/Lukecele)**
 
-![Arbitrage Inc Earn live vault explorer](./docs/live-vaults.png)
+[Quick start](#quick-start) · [Contribute](#contribute) · [MIT license](LICENSE)
 
-This capture shows the public vault explorer and live strategy cards before wallet connection. Rates, positions and availability can change with the underlying protocols.
+</div>
 
-## Demo & Concrete Example
+![Arbitrage Inc Earn vault explorer with lending and liquid-staking strategies](docs/live-vaults.png)
 
-Try the [live Earn application](https://arbitrage-inc-earn.vercel.app) to inspect the vault interface on BNB Smart Chain. The application is read-only until a user connects a wallet and explicitly signs a transaction.
+<sub>Application screenshot from this repository. Live data and available routes change over time.</sub>
 
-Example workflow:
+## What you can explore
 
-1. Select a supported liquid-staking or lending destination.
-2. Review the required asset, route, estimated output and displayed protocol data.
-3. Connect a wallet and sign only after checking the target protocol and transaction details.
+| Integration | Interface focus |
+| :--- | :--- |
+| **Venus Protocol** | BNB Chain lending markets. |
+| **Lista DAO** | Liquid staking with slisBNB. |
+| **Stader** | Liquid staking with BNBx. |
+| **pSTAKE** | Liquid staking with stkBNB. |
+| **KyberSwap** | Token quotes and route building for supported entry flows. |
 
-Supported integrations and displayed yield data can change; this repository does not guarantee returns.
+Built with **Next.js, React, TypeScript, viem, and wagmi**. This is the dedicated Earn application linked from [Arb-Inc All-in-Dex](https://github.com/arbincept/Arb-Inc-All-in-Dex).
 
----
+## Try it
 
-## Architecture & Yield Topology
+1. Open the vault explorer and inspect the available strategies.
+2. Choose a destination and review its required asset, displayed protocol data, and route estimate.
+3. If you choose to proceed, connect a wallet and review each approval and transaction before signing.
 
-```mermaid
-flowchart TD
-    User(["User Wallet<br>(BNB or any ERC-20)"]) --> Kyber["KyberSwap Aggregator API<br>(Optimal Route Calculation)"]
-    Kyber --> Zap["Zap Execution Flow<br>(Viem / Wagmi Single Tx)"]
-    
-    subgraph YieldVaults ["Target Protocols (BNB Chain)"]
-        Zap --> Lista["Lista DAO (slisBNB)<br>Liquid Staking Yield"]
-        Zap --> PStake["pSTAKE Finance (stkBNB)<br>Auto-Compounding Rewards"]
-        Zap --> Stader["Stader Labs (BNBx)<br>Liquid Staking APR"]
-        Zap --> Venus["Venus Protocol (vTokens)<br>Lending Money Market Supply"]
-    end
+Displayed rates and protocol availability can change. Wallet approvals, swaps, and deposits interact with third-party contracts; displayed yield is an estimate.
+
+## Quick start
+
+Use **Node.js 22+** and **npm**, matching the repository's CI toolchain.
+
+```bash
+git clone https://github.com/arbincept/arbitrage-inc-earn.git
+cd arbitrage-inc-earn
+npm install
+npm run dev
 ```
 
----
+Open [localhost:3000](http://localhost:3000).
 
-## Overview
+### Project checks
 
-Arbitrage Inception Vaults aggregates prominent yield-bearing protocols on BNB Chain into a single non-custodial interface. Through direct integration with the **KyberSwap Aggregation API**, users can deposit into liquid staking and lending positions using native BNB or any supported token with automated route calculation and single-transaction execution.
+```bash
+npm run lint
+npm run build
+```
 
-### Key Capabilities:
-- **DeFi "Zap" Composition:** Single-action swap and deposit. Converts any input token to the required vault underlying asset before executing contract calls.
-- **Lending Markets Interaction:** Direct supply and mint calls to **Venus Protocol** money market contracts (`vTokenAbi`, `vUSDT`, `vUSDC`).
-- **Liquid Staking Integration:** Seamless staking flows for **Lista DAO**, **pSTAKE Finance**, and **Stader Labs**.
-- **Modern EVM Tooling:** Built using **Viem** and **Wagmi v2** for type-safe contract calls, fast RPC state reconciliation, and minimal bundle footprint.
+These are the checks configured in [CI](.github/workflows/ci.yml). There is no `npm test` script.
 
----
+## Explore the implementation
 
-## Supported Protocols & Vaults
+| File | Start here for |
+| :--- | :--- |
+| [app/page.tsx](app/page.tsx) | Main application page. |
+| [lib/kyberswap.ts](lib/kyberswap.ts) | Quotes, fee parameters, and route building. |
+| [lib/abis.ts](lib/abis.ts) | Contract interface definitions. |
+| [package.json](package.json) | Scripts and dependencies. |
 
-- **Liquid Staking:**
-  - **Lista DAO** (`slisBNB`): Liquid staked BNB earning protocol staking yields.
-  - **pSTAKE Finance** (`stkBNB`): Auto-compounding BNB staking rewards.
-  - **Stader Labs** (`BNBx`): Liquid staking with automated compound rewards.
-- **Lending Markets:**
-  - **Venus Protocol** (`vUSDT`, `vUSDC`): Decentralized money market supply with automated swap and deposit logic.
+The KyberSwap helper requests a `50` bps fee and defaults to `50` bps slippage tolerance. Review the returned quote and transaction details for the selected route.
 
----
+## Deployment notes
 
-## Tech Stack
+The interface relies on external RPC and protocol APIs. Quotes, balances, and displayed rates depend on their availability. Keep network selection, contract addresses, allowances, and minimum output under review when adapting the code for your own deployment.
 
-- **Framework:** Next.js 15 (App Router), React 19
-- **Web3 Layer:** Wagmi 2, Viem 2, React Query 5 (type-safe RPC state management)
-- **Routing & Execution:** KyberSwap Aggregator API v1 (quote fetching, route building, fee collection)
-- **Styling & UI:** Tailwind CSS, Lucide Icons, Framer Motion
-- **Deployment:** Vercel Edge / Serverless
+## Contribute
 
----
+Reproducible bug reports, clearer documentation, and focused improvements are welcome. Start with an [issue](https://github.com/arbincept/arbitrage-inc-earn/issues) describing the behavior, environment, and expected result. Include the relevant checks with a pull request.
 
-## Local Development
+For sensitive reports, use the organization's [security policy](https://github.com/arbincept/.github/blob/main/SECURITY.md).
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/arbincept/arbitrage-inc-earn.git
-   cd arbitrage-inc-earn
-   ```
+## More from Lukecele
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+This project is part of an independent ecosystem built by **[Luca Celebrano (@Lukecele)](https://github.com/Lukecele)**.
 
-3. **Run the development server:**
-   ```bash
-   npm run dev
-   ```
+[Arb-Inc All-in-Dex](https://github.com/arbincept/Arb-Inc-All-in-Dex) · [Inception Flap Scanner](https://github.com/arbincept/inception-flap-scanner) · [BSC Arbitrage Scanner](https://github.com/arbincept/bsc-arbitrage-scanner)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
+If this project helps you, **[give it a star](https://github.com/arbincept/arbitrage-inc-earn)** and **[follow Lukecele](https://github.com/Lukecele)** for future builds. [Sponsorship](https://github.com/sponsors/Lukecele) helps support ongoing work.
 
----
-
-## 🔗 Ecosystem Integration
-
-This vault interface is an open-source component of the **[Arbitrage Inception Ecosystem](https://arbitrage-inc.exchange)** ([github.com/arbincept](https://github.com/arbincept)), connecting decentralized lending and liquid staking protocols on BNB Smart Chain.
-
----
-
-## ⭐ Support the Project
-
-If you find this yield manager or Zap routing architecture useful for your research or DeFi development, please consider dropping a **Star** on GitHub. It directly supports continuous open-source maintenance!
-
-[![GitHub stars](https://img.shields.io/github/stars/arbincept/arbitrage-inc-earn?style=social)](https://github.com/arbincept/arbitrage-inc-earn)
-
----
-
-## ⚖️ Open-Source Architecture & Regulatory Notice (MiCA Recital 22 & July 2026 CASP Framework)
-
-This repository contains free, open-source client software (MIT License) developed and maintained by independent open-source software engineers and researchers.
-
-- **Non-Custodial Client:** This software functions strictly as a graphical user interface (GUI) and route aggregator for interacting with third-party decentralized liquidity protocols on BNB Smart Chain (KyberSwap, Venus Protocol, Lista DAO, pSTAKE, Stader Labs). It does not hold custody of user funds, operate a centralized exchange, or provide custodial financial services.
-- **MiCA & D.Lgs. 129/2024 Exemption (Recital 22):** Under **Regulation (EU) 2023/1114 (Markets in Crypto-Assets - MiCA)** and national transposing legislation (**Italian D.Lgs. 129/2024**, following the definitive cessation of the national OAM transitional register on **1 July 2026** under CONSOB / Banca d'Italia oversight), fully decentralized, self-custodial peer-to-contract services provided without intermediaries fall outside the scope of regulated crypto-asset service provider (CASP) licensing requirements.
-- **Yield & Risk Notice:** Displayed APY values are third-party on-chain estimates derived from target protocol smart contracts and are not guaranteed returns.
-
----
-
-## License
-
-Released under the [MIT License](./LICENSE).
+[Telegram](https://t.me/ArbitrageInception) · [Updates on X](https://x.com/Arbitrageincept) · [MIT license](LICENSE)
