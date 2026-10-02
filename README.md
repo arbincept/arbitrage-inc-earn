@@ -2,6 +2,8 @@
 
 # Arbitrage Inc Earn
 
+[![CI](https://github.com/arbincept/arbitrage-inc-earn/actions/workflows/ci.yml/badge.svg)](https://github.com/arbincept/arbitrage-inc-earn/actions/workflows/ci.yml)
+
 **Explore BNB Chain lending and liquid staking in one interface.**
 
 Built and maintained by **[Luca Celebrano · @Lukecele](https://github.com/Lukecele)**, founder of [Arbitrage Inception](https://github.com/arbincept).
