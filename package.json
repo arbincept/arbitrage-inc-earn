@@ -29,7 +29,7 @@
     "react-dom": "^19.2.1",
     "tailwind-merge": "^3.3.1",
     "wagmi": "^2.14.9",
-    "viem": "^2.22.17",
+    "viem": "^2.56.8",
     "@tanstack/react-query": "^5.64.2"
   },
   "devDependencies": {
