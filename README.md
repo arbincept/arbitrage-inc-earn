@@ -3,8 +3,9 @@
 # Arbitrage Inc Earn
 
 [![CI](https://github.com/arbincept/arbitrage-inc-earn/actions/workflows/ci.yml/badge.svg)](https://github.com/arbincept/arbitrage-inc-earn/actions/workflows/ci.yml)
+[![PWA Ready](https://img.shields.io/badge/PWA-Installable-0284C7?logo=pwa&logoColor=white)](https://arbitrage-inc-earn.vercel.app)
 
-**Explore BNB Chain lending and liquid staking in one interface.**
+**Explore BNB Chain lending and liquid staking in one interface. Installable as a Progressive Web App (PWA).**
 
 Built and maintained by **[Luca Celebrano · @Lukecele](https://github.com/Lukecele)**, founder of [Arbitrage Inception](https://github.com/arbincept).
 
