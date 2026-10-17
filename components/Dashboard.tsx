@@ -180,18 +180,27 @@ export function Dashboard() {
 
       {/* Footer Branding section */}
       <footer className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-        <div className="flex items-center gap-2">
-          <span className="font-semibold uppercase text-slate-400">Arbitrage Inception</span>
-          <span>© 2026. All rights reserved.</span>
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="font-semibold uppercase text-slate-400">Arbitrage Inception Earn</span>
+          <span>•</span>
+          <span>Open Source (MIT License) • Zero proprietary copyright reserved.</span>
         </div>
         <div className="flex items-center gap-4">
+          <a
+            href="https://github.com/arbincept/arbitrage-inc-earn"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-cyan-400 transition-colors uppercase font-semibold tracking-wider"
+          >
+            GitHub (MIT) ↗
+          </a>
           <a
             href="https://arbitrage-inc.exchange"
             target="_blank"
             rel="noreferrer"
             className="hover:text-emerald-400 transition-colors uppercase font-semibold tracking-wider"
           >
-            Sito Principale ↗
+            Main Exchange ↗
           </a>
         </div>
       </footer>
