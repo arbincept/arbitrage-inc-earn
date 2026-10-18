@@ -48,7 +48,17 @@ export function Navbar() {
           </span>
         </a>
         
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          <a
+            href="https://github.com/arbincept/arbitrage-inc-earn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 text-white text-xs font-semibold transition-colors"
+          >
+            <span>⭐</span>
+            <span className="hidden sm:inline">Star on GitHub</span>
+          </a>
+
           {isConnected && (
             <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-white/5 text-sm font-mono text-slate-300">
               <span>{parseFloat(balance).toFixed(4)} BNB</span>

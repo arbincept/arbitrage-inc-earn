@@ -9,11 +9,14 @@
 
 Built and maintained by **[Luca Celebrano · @Lukecele](https://github.com/Lukecele)**, founder of [Arbitrage Inception](https://github.com/arbincept).
 
-**[Open app](https://arbitrage-inc-earn.vercel.app)** · **[Star this repository](https://github.com/arbincept/arbitrage-inc-earn)** · **[Follow Lukecele](https://github.com/Lukecele)**
-
-[Quick start](#quick-start) · [Contribute](#contribute) · [MIT license](LICENSE)
+**[Open app](https://arbitrage-inc-earn.vercel.app)** · **[Follow Lukecele](https://github.com/Lukecele)** · **[Quick start](#quick-start)** · **[MIT license](LICENSE)**
 
 </div>
+
+> [!TIP]
+> **Found Arbitrage Inc Earn useful?**  
+> If this lending and liquid-staking portal helps your BNB Chain yield strategies, please **leave a ⭐ Star on GitHub** in the top-right corner! It helps protocol indexing and ongoing open-source support.
+
 
 ![Arbitrage Inc Earn vault explorer with lending and liquid-staking strategies](docs/live-vaults.png)
 
